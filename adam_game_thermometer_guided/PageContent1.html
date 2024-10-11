@@ -1,0 +1,78 @@
+
+<!-- Popup -->
+<div id="popup" class="text-center" style="position: fixed; display: none; top: 50%; left: 50%; z-index: 9999; transform: translate(-50%, -50%); background: white; padding: 20px; border: 1px solid #ccc; border-radius: 5px;">
+    <p><strong>The slider will be active on next page.</strong></p>
+    <button class="btn btn-primary btn-large" style="display: inline-block;" onclick="popup()">OK</button>
+</div> 
+<div id="popup2" class="text-center" style="position: fixed; display: none; top: 50%; left: 50%; z-index: 9999; transform: translate(-50%, -50%); background: white; padding: 20px; border: 1px solid #ccc; border-radius: 5px;">
+    <p><strong>You have seen every attribute. Now you will have to choose.</strong></p>
+    <button class="btn btn-primary btn-large" style="display: inline-block;" onclick="popup()">OK</button>
+</div> 
+
+<table class="table text-center">
+    <tr>
+        <th colspan="2"></th>
+        <th>Image</th>
+        <th>Price</th>
+        <th>Guarantee</th>
+        <th>Degree of likeness</th>
+    </tr>
+    <tr>
+        <th>Headphones</th>
+        <td><button name="goods_choice" >choose</button></td>
+        <td>
+            <img src="{{ static C.QUESTION_IMAGE }}" width="50px">
+        </td>
+        <td>
+            <img src="{{ static C.QUESTION_IMAGE }}" width="50px">
+        </td>
+        <td>
+            <img src="{{ static C.QUESTION_IMAGE }}" width="50px">
+        </td>
+        <td>
+            0 &nbsp;
+            <input id="slider" type="range" style="width: 70%;">
+            &nbsp; 100
+            <div>Value: </div>
+        </td>
+    </tr>
+    <tr>
+        <th>Computer</th>
+        <td><button name="goods_choice" value="2">choose</button></td>
+        <td>
+            <img src="{{ static C.QUESTION_IMAGE }}" width="50px">
+        </td>
+        <td>
+            <img src="{{ static C.QUESTION_IMAGE }}" width="50px">
+        </td>
+        <td>
+            <img src="{{ static C.QUESTION_IMAGE }}" width="50px">
+        </td>
+        <td>
+            0 &nbsp;
+            <input id="slider" type="range" style="width: 70%;">
+            &nbsp; 100
+            <div>Value </div>
+        </td>
+    </tr>
+    <tr>
+        <th>Cellphone</th>
+        <td><button name="goods_choice" value="3">choose</button></td>
+        <td>
+            <img src="{{ static C.QUESTION_IMAGE }}" width="50px">
+        </td>
+        <td>
+            <img src="{{ static C.QUESTION_IMAGE }}" width="50px">
+        </td>
+        <td>
+            <img src="{{ static C.QUESTION_IMAGE }}" width="50px">
+        </td>
+        <td>
+            0 &nbsp;
+            <input id="slider" type="range" style="width: 70%;">
+            &nbsp; 100
+            <div>Value: </div>
+        </td>
+    </tr>
+</table>
+

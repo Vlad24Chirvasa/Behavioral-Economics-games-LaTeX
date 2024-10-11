@@ -1,0 +1,115 @@
+{{ block title }}Last Page{{ endblock }}
+{{ block content }}
+
+    {{ include_sibling 'LastPageContent.html' }}
+    
+    <script>
+        var isDragging1 = false;
+        var isDragging2 = false;
+        var isDragging3 = false;
+        var errorJava = false;
+        var nextBox = "{{ last_box }}"
+
+        
+        let box = document.getElementById("box"+nextBox);
+        let content = document.getElementById("hiddenContent"+nextBox);
+        box.style.display = "none";
+        content.style.display = "block";
+        
+
+        function startDrag(id) {
+            if (errorJava === false) {
+                if (id === 1) {
+                    isDragging1 = true;
+                } else if (id === 2) {
+                    isDragging2 = true;
+                } else if (id === 3) {
+                    isDragging3 = true;
+                }
+            }
+        }
+
+        function storeValue(id) {
+            if (errorJava === false) {
+                if (id === 1) {
+                    if (isDragging1 === true) {
+                        let slider = document.getElementById('slider1');
+                        let value = slider.value;
+                        liveSend({'like': String(value), 'good': String(id), 'choice': '',});
+                        isDragging1 = false;
+                    }
+                } else if (id === 2) {
+                    if (isDragging2 === true) {
+                        let slider = document.getElementById('slider2');
+                        let value = slider.value;
+                        liveSend({'like': String(value), 'good': String(id), 'choice': '',});
+                        isDragging2 = false;
+                    }
+                } else if (id === 3) {
+                    if (isDragging3 === true) {
+                        let slider = document.getElementById('slider3');
+                        let value = slider.value;
+                        liveSend({'like': String(value), 'good': String(i), 'choice': '',});
+                        isDragging3 = false;
+                    }
+                }
+            }
+        } 
+
+        function updateRangeValue(id) {
+            if (errorJava === false) {
+                if (id === 1) {
+                    let slider = document.getElementById('slider1');
+                    let value = slider.value;
+                    let rangeValue = document.getElementById('rangeValue1');
+                    rangeValue.textContent = "Value: " + value;
+                } else if (id === 2) {
+                    let slider = document.getElementById('slider2');
+                    let value = slider.value;
+                    let rangeValue = document.getElementById('rangeValue2');
+                    rangeValue.textContent = "Value: " + value;
+                } else if (id === 3) {
+                    let slider = document.getElementById('slider3');
+                    let value = slider.value;
+                    let rangeValue = document.getElementById('rangeValue3');
+                    rangeValue.textContent = "Value: " + value;
+                }   
+            } else if (errorJava) {
+                if (id === 1) {
+                    let rangeValue = document.getElementById('rangeValue1');
+                    rangeValue.textContent = "Limit of likes surpassed."
+                    rangeValue.style.color = "red";
+                } else if (id === 2) {
+                    let rangeValue = document.getElementById('rangeValue2');
+                    rangeValue.textContent = "Limit of likes surpassed."
+                    rangeValue.style.color = "red";
+                } else if (id === 3) {
+                    let rangeValue = document.getElementById('rangeValue3');
+                    rangeValue.textContent = "Limit of likes surpassed."
+                    rangeValue.style.color = "red";
+                }
+            }
+        }
+
+        function choice(id) {
+            if (id === 0) {
+                liveSend({'like': '', 'good': '', 'choice': String(id),});
+            } else if (id === 1) {
+                liveSend({'like': '', 'good': '', 'choice': String(id),});
+            } else if (id === 2) {
+                liveSend({'like': '', 'good': '', 'choice': String(id),});
+            } else if (id === 3) {
+                liveSend({'like': '', 'good': '', 'choice': String(id),});
+            }
+        }
+
+        function liveRecv(error, next,) {
+            if (error) {
+                errorJava = true;
+            } 
+        }
+        
+
+    </script>
+
+{{ endblock }}

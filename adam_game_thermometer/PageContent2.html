@@ -1,0 +1,112 @@
+
+<div id="popup" class="text-center" style="position: fixed; display: none; top: 50%; left: 50%; z-index: 9999; transform: translate(-50%, -50%); background: white; padding: 20px; border: 1px solid #ccc; border-radius: 5px;">
+    <p><strong>Only one like per box opened.</strong></p>
+    <button class="btn btn-primary btn-large" style="display: inline-block;" onclick="popup()">OK</button>
+</div> 
+
+
+<table class="table text-center">
+    <tr>
+        <th colspan="2" rowspan="2"></th>
+        <th>headphones</th>
+        <th>computer</th>
+        <th>cellphone</th>
+    </tr>
+    <tr>
+        <th>
+            <button name="goods_choice" value="1" class="btn btn-primary btn-large">choose</button>
+        </th>
+        <th>
+            <button name="goods_choice" value="2" class="btn btn-primary btn-large">choose</button>
+        </th>
+        <th>
+            <button name="goods_choice" value="3" class="btn btn-primary btn-large">choose</button>
+        </th>
+    </tr>
+    <tr>
+        <th colspan="2">image</th>
+        <td>
+            <div id="hiddenContent1" style="display: none;">
+                <img src="{{ static C.HEADPHONES_IMAGE }}" width="50px">
+            </div>
+            <button id="Button1" style="display: inline-block; height: 50px;">Show</button>
+        </td>
+        <td>
+            <div id="hiddenContent4" style="display: none;">
+                <img src="{{ static C.COMPUTER_IMAGE }}" width="50px">
+            </div>
+            <button id="Button4" style="display: inline-block; height: 50px;">Show</button>
+        </td>
+        <td>
+            <div id="hiddenContent7" style="display: none;">
+                <img src="{{ static C.CELLPHONE_IMAGE }}" width="50px">
+            </div>
+            <button id="Button7" style="display: inline-block; height: 50px;">Show</button>
+        </td>
+    </tr>
+    <tr>
+        <th colspan="2">price</th>
+        <td>
+            <div id="hiddenContent2" style="display: none;">
+                {{ C.HEADPHONES_PRICE }}
+            </div>
+            <button id="Button2" style="display: inline-block; height: 50px;">Show</button>
+        </td>
+        <td>
+            <div id="hiddenContent5" style="display: none;">
+                {{ C.COMPUTER_PRICE }}
+            </div>
+            <button id="Button5" style="display: inline-block; height: 50px;">Show</button>
+        </td>
+        <td>
+            <div id="hiddenContent8" style="display: none;">
+                {{ C.CELLPHONE_PRICE }}
+            </div>
+            <button id="Button8" style="display: inline-block; height: 50px;">Show</button>
+        </td>
+    </tr>
+    <tr>
+        <th colspan="2">guarantee</th>
+        <td>
+            <div id="hiddenContent3" style="display: none;">
+                {{ C.HEADPHONES_GUARANTEE }}
+            </div>
+            <button id="Button3" style="display: inline-block; height: 50px;">Show</button>
+        </td>
+        <td>
+            <div id="hiddenContent6" style="display: none;">
+                {{ C.COMPUTER_GUARANTEE }}
+            </div>
+            <button id="Button6" style="display: inline-block; height: 50px;">Show</button>
+        </td>
+        <td>
+            <div id="hiddenContent9" style="display: none;">
+                {{ C.CELLPHONE_GUARANTEE }}
+            </div>
+            <button id="Button9" style="display: inline-block; height: 50px;">Show</button>
+        </td>
+    </tr>
+    <tr>
+        <th colspan="2">Degree of likeness</th>
+        <td>
+            0 &nbsp;
+                <input type="range" id="range1" style="width: 70%;" min="0" max="100" oninput="updateRangeValue(1)" onmousedown="startDrag(1)" onmouseup="storeValue(1)">
+            &nbsp; 100
+                <p id="rangeValue1">Value: </p>
+        </td>
+        <td>
+            0 &nbsp;
+                <input type="range" id="range2" style="width: 70%;" min="0" max="100" oninput="updateRangeValue(2)" onmousedown="startDrag(2)" onmouseup="storeValue(2)">
+            &nbsp; 100
+                <p id="rangeValue2">Value: </p>
+        </td>
+        <td>
+            0 &nbsp;
+                <input type="range" id="range3" style="width: 70%;" min="0" max="100" oninput="updateRangeValue(3)" onmousedown="startDrag(3)" onmouseup="storeValue(3)">
+            &nbsp; 100
+                <p id="rangeValue3">Value: </p>
+        </td>
+    </tr>
+</table>
+
+

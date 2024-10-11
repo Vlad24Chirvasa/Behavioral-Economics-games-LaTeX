@@ -1,0 +1,20 @@
+{{ block title}}Time to choose{{ endblock }}
+{{ block content }}
+
+    {{ include_sibling 'PageContent1.html' }}
+
+    <script>
+        let slider = document.getElementById('slider');
+        let popup = document.getElementById('popup');
+        slider.addEventListener('click', function(event) {
+            event.preventDefault();
+            popup.style.display = "block";
+        })
+        popup.addEventListener('click', function(event) {
+            event.preventDefault();
+            popup.style.display = "none";
+        })
+    </script>
+
+<button>Start</button>
+{{ endblock }}

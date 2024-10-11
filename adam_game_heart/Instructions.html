@@ -1,0 +1,41 @@
+{{ block title }} Instructions {{ endblock }}
+{{ block content }}
+
+<p>
+    In this game you will have to choose between <strong>three goods.</strong>
+    <ul>
+        <li>
+            For each good there are <strong>attributes.</strong>
+        </li>
+        <li>
+            <strong>Attributes</strong> are hidden within table cells.
+        </li>
+        <li>
+            You will also have the possibility to <strong>like</strong> each good.
+        </li>
+    </ul>
+    
+    In a nutshell, you will have to open the cells to find out more about each good.
+</br>
+    You have the possibility to say if you like the goods as you open each cell
+    by clicking on a heart icon. </br>
+    <ul>
+        <li>
+            The heart is empty <img src="{{ static C.EMPTY_HEART }}" width="30px" style="display: inline-block;">
+        </li>
+        <li>
+            If you click, it fills <img src="{{ static C.FILLED_HEART }}" width="30px" style="display: inline-block;">
+        </li>
+        <li>
+            After 2 sec it empties again so that you can give another like.
+        </li>
+    </ul>
+    You have 45 seconds until the matrix transposes.
+</p>
+<p>
+    <i>Important: You can only give one like per box opened</i>
+</p>
+
+{{ next_button }}
+
+{{ endblock }}

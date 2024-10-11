@@ -1,0 +1,75 @@
+{{ block title}}Time to choose{{ endblock }}
+{{ block content }}
+
+    {{ include_sibling 'PageContent1.html' }}
+
+    <script>
+        var emptyHearts = ['empty_heart1', 'empty_heart2', 'empty_heart3'];
+        var filledHearts = ['filled_heart1', 'filled_heart2', 'filled_heart3'];
+
+        for (let i = 0; i < emptyHearts.length; i++) {
+            let emptyHeart = document.getElementById(emptyHearts[i]);
+            let filledHeart = document.getElementById(filledHearts[i]);
+
+            emptyHeart.addEventListener('click', function(event) {
+                event.preventDefault();
+                emptyHeart.style.display = "none";
+                filledHeart.style.display = "inline-block";
+                setTimeout(function() {
+                    filledHeart.style.display = "none";
+                    emptyHeart.style.display = "inline-block";
+                }, 2000);
+                
+                if (i == 0){
+                    liveSend({'button': '', 'like': '1', 'headphones': true, 'computer': false, 'cellphone': false});
+                } else if (i == 1) {
+                    liveSend({'button': '', 'like': '1', 'headphones': false, 'computer': true, 'cellphone': false});
+                } else if (i == 2) {
+                    liveSend({'button': '', 'like': '1', 'headphones': false, 'computer': false, 'cellphone': true});
+                }
+            });          
+        }
+
+        // Popup open
+        function liveRecv(data, empty) {
+            if (data.error) {
+                let popup = document.getElementById('popup'); 
+                popup.style.display = "block"; 
+            } 
+        }
+
+        // Popup close
+        let popup = document.getElementById('popup')
+        popup.addEventListener('click', function(event) {
+            event.preventDefault();
+            popup.style.display = "none";
+        });
+
+        var buttonIds = ['Button1', 'Button2', 'Button3', 'Button4', 'Button5', 'Button6', 'Button7', 'Button8', 'Button9'];
+        var contentIds = ['hiddenContent1', 'hiddenContent2', 'hiddenContent3', 'hiddenContent4', 'hiddenContent5', 'hiddenContent6', 'hiddenContent7', 'hiddenContent8', 'hiddenContent9'];
+        // Only if the game opens one cell and closes the other.
+        var openedContent = null;
+        var openedButton = null;
+
+        // Loop over buttons and add event listeners
+        for (let i = 0; i < buttonIds.length; i++) {
+            let button = document.getElementById(buttonIds[i]);
+            let content = document.getElementById(contentIds[i]);
+
+            button.addEventListener('click', function(event) {
+                event.preventDefault();
+                if (openedContent){
+                    openedContent.style.display = "none";
+                    openedButton.style.display = "inline-block";
+                }
+                openedContent = content;
+                openedButton = button;
+                content.style.display = "block";
+                button.style.display = "none";
+                liveSend({'button': String(i + 1), 'like': '', 'headphones': false, 'computer': false, 'cellphone': false});
+            });
+        }
+
+    </script>
+
+{{ endblock }}

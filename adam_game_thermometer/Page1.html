@@ -1,0 +1,110 @@
+{{ block title}}Time to choose{{ endblock }}
+{{ block content }}
+
+    {{ include_sibling 'PageContent1.html' }}
+
+    <script>
+        // Popup open
+        function liveRecv(data) {
+            if (data.error) {
+                let popup = document.getElementById('popup'); 
+                popup.style.display = "block"; 
+            } 
+        }
+        var isDragging1 = false;
+        var isDragging2 = false;
+        var isDragging3 = false;
+        var storedValue1;
+        var storedValue2;
+        var storedValue3;
+
+        function startDrag(inputNumber) {
+            if (inputNumber === 1) {
+                isDragging1 = true;
+            } else if (inputNumber === 2) {
+                isDragging2 = true;
+            } else if (inputNumber === 3) {
+                isDragging3 = true;
+            }
+        }
+
+        function storeValue(inputNumber) {
+            if (inputNumber === 1) {
+                if (isDragging1) {
+                    let inputElement = document.getElementById('range1');
+                    let value = inputElement.value;
+                    liveSend({'button': '', 'like': value, 'headphones': true, 'computer': false, 'cellphone': false});
+                    isDragging1 = false;
+                }
+            } else if (inputNumber === 2) {
+                if (isDragging2) {
+                    let inputElement = document.getElementById('range2');
+                    let value = inputElement.value;
+                    liveSend({'button': '', 'like': value, 'headphones': false, 'computer': true, 'cellphone': false});
+                    isDragging2 = false;
+                }
+            } else if (inputNumber === 3) {
+                if (isDragging3) {
+                    let inputElement = document.getElementById('range3');
+                    let value = inputElement.value;
+                    liveSend({'button': '', 'like': value, 'headphones': false, 'computer': false, 'cellphone': true});
+                    isDragging3 = false;
+                }
+            }
+        }
+
+        function updateRangeValue(inputNumber) {
+            if (inputNumber === 1) {
+                let inputElement = document.getElementById('range1');
+                let value = inputElement.value;
+                let rangeValueElement = document.getElementById('rangeValue1');
+                rangeValueElement.textContent = "Value: " + value;
+            } else if (inputNumber === 2) {
+                let inputElement = document.getElementById('range2');
+                let value = inputElement.value;
+                let rangeValueElement = document.getElementById('rangeValue2');
+                rangeValueElement.textContent = "Value: " + value;
+            } else if (inputNumber === 3) {
+                let inputElement = document.getElementById('range3');
+                let value = inputElement.value;
+                let rangeValueElement = document.getElementById('rangeValue3');
+                rangeValueElement.textContent = "Value: " + value;
+        }
+    }
+
+
+        // Popup close
+        let popup = document.getElementById('popup')
+        popup.addEventListener('click', function(event) {
+            event.preventDefault();
+            popup.style.display = "none";
+        });
+
+        var buttonIds = ['Button1', 'Button2', 'Button3', 'Button4', 'Button5', 'Button6', 'Button7', 'Button8', 'Button9'];
+        var contentIds = ['hiddenContent1', 'hiddenContent2', 'hiddenContent3', 'hiddenContent4', 'hiddenContent5', 'hiddenContent6', 'hiddenContent7', 'hiddenContent8', 'hiddenContent9'];
+        // Only if the game opens one cell and closes the other.
+        var openedContent = null;
+        var openedButton = null;
+
+        // Loop over buttons and add event listeners
+        for (let i = 0; i < buttonIds.length; i++) {
+            let button = document.getElementById(buttonIds[i]);
+            let content = document.getElementById(contentIds[i]);
+
+            button.addEventListener('click', function(event) {
+                event.preventDefault();
+                if (openedContent){
+                    openedContent.style.display = "none";
+                    openedButton.style.display = "inline-block";
+                }
+                openedContent = content;
+                openedButton = button;
+                content.style.display = "block";
+                button.style.display = "none";
+                liveSend({'button': String(i + 1), 'like': '', 'headphones': false, 'computer': false, 'cellphone': false});
+            });
+        }
+
+    </script>
+
+{{ endblock }}

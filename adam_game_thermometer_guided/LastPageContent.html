@@ -1,0 +1,96 @@
+
+<table class="table text-center">
+    <tr>
+        <th colspan="2"></th>
+        <th>Image</th>
+        <th>Price</th>
+        <th>Guarantee</th>
+        <th>Degree of likeness</th>
+    </tr>
+    <tr>
+        <th>Headphones</th>
+        <td><button onclick="choice(1)">choose</button></td>
+        <td>
+            <div id="hiddenContent1" style="display: none;">
+                <img src="{{ static C.HEADPHONES_IMAGE }}" width="50px">
+            </div>
+            <img id="box1" src="{{ static C.QUESTION_IMAGE }}" width="50px" style="display: inline-block;">
+        </td>
+        <td>
+            <div id="hiddenContent2" style="display: none;">
+                {{ C.HEADPHONES_PRICE }}
+            </div>
+            <img id="box2" src="{{ static C.QUESTION_IMAGE }}" width="50px" style="display: inline-block;">
+        </td>
+        <td>
+            <div id="hiddenContent3" style="display: none;">
+                {{ C.HEADPHONES_GUARANTEE }}
+            </div>
+            <img id="box3" src="{{ static C.QUESTION_IMAGE }}" width="50px" style="display: inline-block;">
+        </td>
+        <td>
+            0 &nbsp;
+            <input id="slider1" type="range" min="0" max="100" style="width: 70%;" oninput="updateRangeValue(1)" onmousedown="startDrag(1)" onmouseup="storeValue(1)">
+            &nbsp; 100
+            <div id="rangeValue1">Value: </div>
+        </td>
+    </tr>
+    <tr>
+        <th>Computer</th>
+        <td><button onclick="choice(2)">choose</button></td>
+        <td>
+            <div id="hiddenContent4" style="display: none;">
+                <img src="{{ static C.COMPUTER_IMAGE }}" width="50px">
+            </div>
+            <img id="box4" src="{{ static C.QUESTION_IMAGE }}" width="50px" style="display: inline-block;">
+        </td>
+        <td>
+            <div id="hiddenContent5" style="display: none;">
+                {{ C.COMPUTER_PRICE }}
+            </div>
+            <img id="box5" src="{{ static C.QUESTION_IMAGE }}" width="50px" style="display: inline-block;">
+        </td>
+        <td>
+            <div id="hiddenContent6" style="display: none;">
+                {{ C.COMPUTER_GUARANTEE }}
+            </div>
+            <img id="box6" src="{{ static C.QUESTION_IMAGE }}" width="50px" style="display: inline-block;">
+        </td>
+        <td>
+            0 &nbsp;
+            <input id="slider2" type="range" min="0" max="100" style="width: 70%;" oninput="updateRangeValue(2)" onmousedown="startDrag(2)" onmouseup="storeValue(2)">
+            &nbsp; 100
+            <div id="rangeValue2">Value: </div>
+        </td>
+    </tr>
+    <tr>
+        <th>Cellphone</th>
+        <td><button onclick="choice(3)">choose</button></td>
+        <td>
+            <div id="hiddenContent7" style="display: none;">
+                <img src="{{ static C.CELLPHONE_IMAGE }}" width="50px">
+            </div>
+            <img id="box7" src="{{ static C.QUESTION_IMAGE }}" width="50px" style="display: inline-block;">
+        </td>
+        <td>
+            <div id="hiddenContent8" style="display: none;">
+                {{ C.CELLPHONE_PRICE }}
+            </div>
+            <img id="box8" src="{{ static C.QUESTION_IMAGE }}" width="50px" style="display: inline-block;">
+        </td>
+        <td>
+            <div id="hiddenContent9" style="display: none;">
+                {{ C.CELLPHONE_GUARANTEE }}
+            </div>
+            <img id="box9" src="{{ static C.QUESTION_IMAGE }}" width="50px" style="display: inline-block;">
+        </td>
+        <td>
+            0 &nbsp;
+            <input id="slider3" type="range" min="0" max="100" style="width: 70%;" oninput="updateRangeValue(3)" onmousedown="startDrag(3)" onmouseup="storeValue(3)">
+            &nbsp; 100
+            <div id="rangeValue3">Value: </div>
+        </td>
+    </tr>
+</table>
+
+<p>Now you have to choose.</p>

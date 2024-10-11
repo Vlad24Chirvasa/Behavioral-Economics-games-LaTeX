@@ -1,0 +1,97 @@
+
+<!-- Popup -->
+<div id="popup" class="text-center" style="position: fixed; display: none; top: 50%; left: 50%; z-index: 9999; transform: translate(-50%, -50%); background: white; padding: 20px; border: 1px solid #ccc; border-radius: 5px;">
+    <p><strong>Only one like per box opened.</strong></p>
+    <button class="btn btn-primary btn-large" style="display: inline-block;" onclick="popup()">OK</button>
+</div> 
+
+
+<table class="table text-center">
+    <tr>
+        <th colspan="2"></th>
+        <th>image</th>
+        <th style="width: 100px;">price</th>
+        <th>guarantee</th>
+        <th>Do you like the good?</th>
+    </tr>
+    <tr>
+        <th>headphones</th>
+        <td><button name="goods_choice" value="1" class="btn btn-primary btn-large">choose</button></td>
+        <td>
+            <div id="hiddenContent1" style="display: none;">
+                <img src="{{ static C.HEADPHONES_IMAGE }}" width="50px">
+            </div>
+            <button id="Button1" style="display: inline-block; height: 50px;">Show</button>
+        </td>
+        <td>
+            <div id="hiddenContent2" style="display: none;">
+                {{ C.HEADPHONES_PRICE }}
+            </div>
+            <button id="Button2" style="display: inline-block; height: 50px;">Show</button>
+        </td>
+        <td>
+            <div id="hiddenContent3" style="display: none;">
+                {{ C.HEADPHONES_GUARANTEE }}
+            </div>
+            <button id="Button3" style="display: inline-block; height: 50px;">Show</button>
+        </td>
+        <td>
+            <img src="{{ static C.EMPTY_HEART }}" id="empty_heart1" style="display: inline-block;" width="70px">
+            <img src="{{ static C.FILLED_HEART }}" id="filled_heart1" style="display: none;" width="70px">
+        </td>
+    </tr>
+    <tr>
+        <th>computer</th>
+        <td><button name="goods_choice" value="2" class="btn btn-primary btn-large">choose</button></td>
+        <td>
+            <div id="hiddenContent4" style="display: none;">
+                <img src="{{ static C.COMPUTER_IMAGE }}" width="50px">
+            </div>
+            <button id="Button4" style="display: inline-block; height: 50px;">Show</button>
+        </td>
+        <td>
+            <div id="hiddenContent5" style="display: none;">
+                {{ C.COMPUTER_PRICE }}
+            </div>
+            <button id="Button5" style="display: inline-block; height: 50px;">Show</button>
+        </td>
+        <td>
+            <div id="hiddenContent6" style="display: none;">
+                {{ C.COMPUTER_GUARANTEE }}
+            </div>
+            <button id="Button6" style="display: inline-block; height: 50px;">Show</button>
+        </td>
+        <td>
+            <img src="{{ static C.EMPTY_HEART }}" id="empty_heart2" style="display: inline-block;" width="70px">
+            <img src="{{ static C.FILLED_HEART }}" id="filled_heart2" style="display: none;" width="70px">
+        </td>
+    </tr>
+    <tr>
+        <th>cellphone</th>
+        <td><button name="goods_choice" value="3" class="btn btn-primary btn-large">choose</button></td>
+        <td>
+            <div id="hiddenContent7" style="display: none;">
+                <img src="{{ static C.CELLPHONE_IMAGE }}" width="50px">
+            </div>
+            <button id="Button7" style="display: inline-block; height: 50px;">Show</button>
+        </td>
+        <td>
+            <div id="hiddenContent8" style="display: none;">
+                {{ C.CELLPHONE_PRICE }}
+            </div>
+            <button id="Button8" style="display: inline-block; height: 50px;">Show</button>
+        </td>
+        <td>
+            <div id="hiddenContent9" style="display: none;">
+                {{ C.CELLPHONE_GUARANTEE }}
+            </div>
+            <button id="Button9" style="display: inline-block; height: 50px;">Show</button>
+        </td>
+        <td>
+            <img src="{{ static C.EMPTY_HEART }}" id="empty_heart3" style="display: inline-block;" width="70px">
+            <img src="{{ static C.FILLED_HEART }}" id="filled_heart3" style="display: none;" width="70px">
+        </td>
+    </tr>
+</table>
+
+
